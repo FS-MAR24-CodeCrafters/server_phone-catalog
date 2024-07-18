@@ -15,5 +15,16 @@
     "url": "https://github.com/FS-MAR24-CodeCrafters/server_phone-catalog/issues"
   },
   "homepage": "https://github.com/FS-MAR24-CodeCrafters/server_phone-catalog#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "eslint": "^9.7.0",
+    "eslint-plugin-node": "^11.1.0",
+    "prettier": "^3.3.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
 }
