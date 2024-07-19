@@ -70,9 +70,9 @@ async function createProduct(data) {
     delete product.id;
 
     return product;
-  })
-  
+  });
+
   return await Product.bulkCreate(newData);
 }
 
-module.exports = { getAllProducts, createProduct, Products };
+module.exports = { getAllProducts, createProduct, Product };
