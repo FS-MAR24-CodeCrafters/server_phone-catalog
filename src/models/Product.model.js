@@ -22,11 +22,11 @@ const Product = sequelize.define(
       allowNull: false,
     },
     fullPrice: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     price: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     screen: {
@@ -46,7 +46,7 @@ const Product = sequelize.define(
       allowNull: false,
     },
     year: {
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     image: {
@@ -65,32 +65,14 @@ function getAllProducts() {
   return Product.findAll();
 }
 
-function createProduct({
-  category,
-  itemId,
-  name,
-  fullPrice,
-  price,
-  screen,
-  capacity,
-  color,
-  ram,
-  year,
-  image,
-}) {
-  return Product.create({
-    category,
-    itemId,
-    name,
-    fullPrice,
-    price,
-    screen,
-    capacity,
-    color,
-    ram,
-    year,
-    image,
-  });
+async function createProduct(data) {
+  const newData = data.map((product) => {
+    delete product.id;
+
+    return product;
+  })
+  
+  return await Product.bulkCreate(newData);
 }
 
-module.exports = { getAllProducts, createProduct, Product };
+module.exports = { getAllProducts, createProduct, Products };
