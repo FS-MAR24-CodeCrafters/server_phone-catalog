@@ -11,7 +11,7 @@ const response = {
   400: {
     statusCode: 400,
     messages: {
-      notData: 'Please provide all necessary data.',
+      noData: 'Please provide all necessary data.',
     },
   },
   404: {
@@ -24,9 +24,9 @@ const response = {
     statusCode: 503,
     messages: {
       serverError: 'Server error.',
-      products: 'There are no products or error has occurred'
+      products: 'There are no products or error has occurred',
     },
   },
 };
 
-module.exports = { response };
+export { response };

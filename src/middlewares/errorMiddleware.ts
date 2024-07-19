@@ -1,4 +1,4 @@
-const { response } = require('../constants/response');
+import { response } from '../constants/response';
 
 function errorMiddleware(err, req, res, next) {
   if (err) {
@@ -10,4 +10,4 @@ function errorMiddleware(err, req, res, next) {
   next();
 }
 
-module.exports = { errorMiddleware };
+export { errorMiddleware };

@@ -1,10 +1,10 @@
 'use strict';
 
-const http = require('http');
+import http from 'http';
 
-require('dotenv').config();
+import 'dotenv/config';
 
-const app = require('./app');
+import { app } from './app';
 
 const PORT = process.env.PORT || 8000;
 

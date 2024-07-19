@@ -1,5 +1,5 @@
-const { response } = require('../constants/response');
-const { getAllProducts, createProducts } = require('../models/Product.model');
+import { response } from '../constants/response';
+import { getAllProducts, createProducts } from '../models/Product.model';
 
 async function httpGetAllProducts(req, res) {
   const products = await getAllProducts();
@@ -19,7 +19,7 @@ async function httpCreateNewProducts(req, res) {
   if (!data.length) {
     return res
       .status(response[400].statusCode)
-      .json({ success: false, error: response[400].messages.noName });
+      .json({ success: false, error: response[400].messages.noData });
   }
 
   const result = await createProducts(data);
@@ -29,4 +29,4 @@ async function httpCreateNewProducts(req, res) {
     .json({ success: true, result});
 }
 
-module.exports = { httpGetAllProducts, httpCreateNewProducts };
+export { httpGetAllProducts, httpCreateNewProducts };

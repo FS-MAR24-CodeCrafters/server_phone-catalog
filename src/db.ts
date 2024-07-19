@@ -1,10 +1,10 @@
 'use strict';
 
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
 
-require('dotenv').config();
+import 'dotenv/config';
 
-const {
+/* const {
   POSTGRES_HOST,
   POSTGRES_PORT,
   POSTGRES_USER,
@@ -17,8 +17,25 @@ const sequelize = new Sequelize({
   username: POSTGRES_USER,
   host: POSTGRES_HOST,
   dialect: 'postgres',
-  port: POSTGRES_PORT,
+  port: Number(POSTGRES_PORT),
   password: POSTGRES_PASSWORD,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+}); */
+const DBUrl = process.env.POSTGRES_LINK;
+
+if (!DBUrl) {
+  throw Error('There are no db url')
+}
+
+
+const sequelize = new Sequelize(DBUrl, {
+  dialect: 'postgres',
+  protocol: 'postgres',
   dialectOptions: {
     ssl: {
       require: true,
@@ -27,6 +44,6 @@ const sequelize = new Sequelize({
   },
 });
 
-module.exports = {
+export {
   sequelize,
 };
