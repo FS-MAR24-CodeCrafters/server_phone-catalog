@@ -1,4 +1,3 @@
-import { sequelize } from './db.js';
-import { Product } from "./models/Product.model";
+const { Product } = require('./models/Product.model');
 
 Product.sync({ force: true });
