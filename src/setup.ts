@@ -1,3 +1,3 @@
-const { Product } = require('./models/Product.model');
+import { Product } from './models/Product.model';
 
 Product.sync({ force: true });
