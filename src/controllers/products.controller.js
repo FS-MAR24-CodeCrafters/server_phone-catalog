@@ -1,5 +1,5 @@
-import { response } from '../constants/response';
-import { getAllProducts, createProducts } from '../models/Product.model';
+const { response } = require('../constants/response');
+const { getAllProducts, createProducts } = require('../models/Product.model');
 
 async function httpGetAllProducts(req, res) {
   const products = await getAllProducts();
@@ -24,9 +24,7 @@ async function httpCreateNewProducts(req, res) {
 
   const result = await createProducts(data);
 
-  return res
-    .status(response[200].statusCode)
-    .json({ success: true, result});
+  return res.status(response[200].statusCode).json({ success: true, result });
 }
 
-export { httpGetAllProducts, httpCreateNewProducts };
+module.exports = { httpGetAllProducts, httpCreateNewProducts };

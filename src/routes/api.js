@@ -1,8 +1,8 @@
-import express from 'express';
-import { productsRouter } from './products/products.route';
+const express = require('express');
+const { productsRouter } = require('./products/products.route');
 
 const api = express.Router();
 
 api.use('/products', productsRouter);
 
-export { api };
+module.exports = { api };

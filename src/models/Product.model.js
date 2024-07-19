@@ -1,5 +1,5 @@
-import { DataTypes } from 'sequelize';
-import { sequelize } from '../db';
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../db');
 
 const Product = sequelize.define(
   'product',
@@ -75,4 +75,4 @@ async function createProducts(data) {
   return await Product.bulkCreate(newData);
 }
 
-export { getAllProducts, createProducts, Product };
+module.exports = { getAllProducts, createProducts, Product };

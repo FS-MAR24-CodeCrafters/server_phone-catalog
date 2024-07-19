@@ -1,8 +1,8 @@
 'use strict';
 
-import { Sequelize } from 'sequelize';
+const { Sequelize } = require('sequelize');
 
-import 'dotenv/config';
+require('dotenv').config();
 
 /* const {
   POSTGRES_HOST,
@@ -32,7 +32,6 @@ if (!DBUrl) {
   throw Error('There are no db url')
 } */
 
-
 const sequelize = new Sequelize(process.env.POSTGRES_LINK, {
   dialect: 'postgres',
   protocol: 'postgres',
@@ -44,6 +43,4 @@ const sequelize = new Sequelize(process.env.POSTGRES_LINK, {
   },
 });
 
-export {
-  sequelize,
-};
+module.exports = { sequelize };

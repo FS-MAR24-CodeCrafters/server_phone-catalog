@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
 
-import { errorMiddleware } from './middlewares/errorMiddleware';
-import { api } from  './routes/api';
+const { errorMiddleware } = require('./middlewares/errorMiddleware');
+const { api } = require('./routes/api');
 
 const app = express();
 
@@ -18,4 +18,4 @@ app.use('/api', api);
 
 app.use(errorMiddleware);
 
-export { app };
+module.exports = { app };

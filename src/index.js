@@ -1,11 +1,11 @@
 'use strict';
 
-import http from 'http';
+const http = require('http');
 
-import 'dotenv/config';
+require('dotenv').config();
 
-import { app } from './app';
-import { Product } from './models/Product.model';
+const { app } = require('./app');
+const { Product } = require('./models/Product.model');
 
 const PORT = process.env.PORT || 8000;
 
