@@ -65,7 +65,7 @@ function getAllProducts() {
   return Product.findAll();
 }
 
-async function createProduct(data) {
+async function createProducts(data) {
   const newData = data.map((product) => {
     delete product.id;
 
@@ -75,4 +75,4 @@ async function createProduct(data) {
   return await Product.bulkCreate(newData);
 }
 
-module.exports = { getAllProducts, createProduct, Product };
+module.exports = { getAllProducts, createProducts, Product };
