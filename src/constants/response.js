@@ -1,9 +1,18 @@
 const response = {
   200: {
     statusCode: 200,
+    messages: {
+      success: 'Products have been created.',
+    },
   },
   201: {
     statusCode: 201,
+  },
+  400: {
+    statusCode: 400,
+    messages: {
+      notData: 'Please provide all necessary data.',
+    },
   },
   404: {
     statusCode: 404,
@@ -15,6 +24,7 @@ const response = {
     statusCode: 503,
     messages: {
       serverError: 'Server error.',
+      products: 'There are no products or error has occurred'
     },
   },
 };

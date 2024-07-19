@@ -1,10 +1,10 @@
-const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
 require('dotenv').config();
 
 const { errorMiddleware } = require('./middlewares/errorMiddleware');
+const { api } = require('./routes/api');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(
 );
 app.use(express.json());
 
-// app.use('/api', api);
+app.use('/api', api);
 
 app.use(errorMiddleware);
 
