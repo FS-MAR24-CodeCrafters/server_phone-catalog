@@ -93,4 +93,4 @@ function createProduct({
   });
 }
 
-module.exports = { getAllProducts, createProduct };
+module.exports = { getAllProducts, createProduct, Product };
