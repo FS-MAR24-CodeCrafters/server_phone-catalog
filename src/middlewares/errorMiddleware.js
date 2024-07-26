@@ -1,6 +1,7 @@
 const { response } = require('../constants/response');
 
 function errorMiddleware(err, req, res, next) {
+  console.log(err);
   if (err) {
     res
       .status(response[503].statusCode)

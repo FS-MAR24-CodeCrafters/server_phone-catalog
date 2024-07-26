@@ -61,8 +61,8 @@ const Product = sequelize.define(
   },
 );
 
-function getAllProducts() {
-  return Product.findAll();
+async function getAllProducts() {
+  return await Product.findAll();
 }
 
 async function createProducts(data) {

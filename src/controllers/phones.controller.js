@@ -15,7 +15,6 @@ async function httpGetAllPhones(req, res) {
 
 async function httpFillAllPhones(req, res) {
   const data = req.body;
-  console.log(data);
 
   if (!data.length) {
     return res
