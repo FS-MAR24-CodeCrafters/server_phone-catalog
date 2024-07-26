@@ -2,7 +2,7 @@ const express = require('express');
 
 const tabletsRouter = express.Router();
 
-phonesRouter.get('/', httpGetAllTablets)
-phonesRouter.post('/', httpFillAllTablets)
+tabletsRouter.get('/', httpGetAllTablets)
+tabletsRouter.post('/', httpFillAllTablets)
 
 module.exports = { tabletsRouter };
