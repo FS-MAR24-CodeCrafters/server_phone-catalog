@@ -13,7 +13,7 @@ async function httpGetAllProducts(req, res) {
   return res.status(response[200].statusCode).json(products);
 }
 
-async function httpCreateNewProducts(req, res) {
+async function httpFillProductsTable(req, res) {
   const data = req.body;
 
   if (!data.length) {
@@ -27,4 +27,4 @@ async function httpCreateNewProducts(req, res) {
   return res.status(response[200].statusCode).json({ success: true, result });
 }
 
-module.exports = { httpGetAllProducts, httpCreateNewProducts };
+module.exports = { httpGetAllProducts, httpFillProductsTable };

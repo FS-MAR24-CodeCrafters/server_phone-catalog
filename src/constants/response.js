@@ -25,6 +25,7 @@ const response = {
     messages: {
       serverError: 'Server error.',
       products: 'There are no products or error has occurred',
+      phones: 'There are no phones or error has occurred',
     },
   },
 };
