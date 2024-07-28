@@ -1,7 +1,10 @@
 const { Product } = require('./product.pg');
 
-async function getAllProducts() {
-  return await Product.findAll();
+async function getPaginatedProducts(offset, limit) {
+  return await Product.findAll({
+    offset,
+    limit,
+  });
 }
 
 async function createProducts(data) {
@@ -14,4 +17,4 @@ async function createProducts(data) {
   return await Product.bulkCreate(newData);
 }
 
-module.exports = { getAllProducts, createProducts };
+module.exports = { getPaginatedProducts, createProducts };

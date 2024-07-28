@@ -1,12 +1,12 @@
 const express = require('express');
 const {
-  httpGetAllProducts,
+  httpGetPaginatedProducts,
   httpFillProductsTable,
 } = require('../controllers/products.controller');
 
 const productsRouter = express.Router();
 
-productsRouter.get('/', httpGetAllProducts);
+productsRouter.get('/:page', httpGetPaginatedProducts);
 productsRouter.post('/', httpFillProductsTable);
 
 module.exports = { productsRouter };

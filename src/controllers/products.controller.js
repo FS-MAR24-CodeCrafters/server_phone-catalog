@@ -1,8 +1,14 @@
+const { pagination } = require('../constants/pagination');
 const { response } = require('../constants/response');
-const { getAllProducts, createProducts } = require('../models/Product.model');
+const { getPaginatedProducts, createProducts } = require('../models/Product.model');
 
-async function httpGetAllProducts(req, res) {
-  const products = await getAllProducts();
+async function httpGetPaginatedProducts(req, res) {
+  const { page = 0, perPage } = req.params;
+
+  const offset = page * pagination.limit;
+  const limit = perPage ? perPage : pagination.limit;
+
+  const products = await getPaginatedProducts(offset, limit);
 
   if (!products) {
     return res
@@ -27,4 +33,4 @@ async function httpFillProductsTable(req, res) {
   return res.status(response[200].statusCode).json({ success: true, result });
 }
 
-module.exports = { httpGetAllProducts, httpFillProductsTable };
+module.exports = { httpGetPaginatedProducts, httpFillProductsTable };
