@@ -7,11 +7,23 @@ const { api } = require('./routes/api');
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://fs-mar24-codecrafters.github.io/react_phone-catalog/',
-  }),
-);
+const whitelist = [
+  'https://fs-mar24-codecrafters.github.io/react_phone-catalog/',
+  'http://localhost:5173',
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 
 app.use('/api', api);
