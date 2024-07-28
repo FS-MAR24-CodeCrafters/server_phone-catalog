@@ -12,6 +12,6 @@ const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
 
 server.listen(PORT, () => {
-  Accessory();
+  Accessory.sync();
   console.log(`Listening on port ${PORT}`);
 });
