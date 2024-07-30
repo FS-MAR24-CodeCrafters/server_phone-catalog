@@ -8,7 +8,7 @@ const { api } = require('./routes/api');
 const app = express();
 
 const whitelist = [
-  'https://fs-mar24-codecrafters.github.io/react_phone-catalog/',
+  'https://fs-mar24-codecrafters.github.io/react_phone-catalog/#/',
   'http://localhost:5173',
 ];
 
